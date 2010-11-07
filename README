@@ -1,0 +1,6 @@
+IRC Bot Hosting Web App
+
+Author: Chris Oliver <excid3@gmail.com>
+        http://excid3.com
+
+This was never finished. The web interface is written in Django and the backend daemon communicates with it over DBus. Only tested on Ubuntu, but it worked well for what it was. It is probably a good example for learning basic DBus communication in Python, however I can't say much of the quality of the code. It's been a long time since I've looked at this.
