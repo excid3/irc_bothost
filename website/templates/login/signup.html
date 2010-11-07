@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Signup | {% endblock %}
+
+{% block content %}
+<form class="login" method="post">{#{% csrf_token %}#}
+  <label for="username">
+    Username {% if errors.user %}- {{errors.user}}{% endif %}
+    <br />
+    <input name="username" id="username" size="30" />
+  </label>
+  <label for="email">
+    Email Address {% if errors.email %}- {{errors.email}}{% endif %}
+    <br />
+    <input name="email" id="email" size="30" />
+  </label>
+  <!--<label for="irc_nick">
+    IRC Nickname
+    <br />
+    <input id="irc_nick" />
+  </label>-->
+  <label for="password">
+    Password {% if errors.pass %}- {{errors.pass}}{% endif %}
+    <br />
+    <input name="password" id="password" size="" type="password" />
+  </label>
+  <label for="confirm">
+    Confirm Password
+    <br />
+    <input name="confirm" id="confirm" size="" type="password" />
+  </label>
+
+  <p>By signing up, you agree to the Terms of Service and Privacy policy.</p>
+
+  <input type="submit" value="Register" />
+</form>
+{% endblock %}
+

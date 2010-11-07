@@ -1,0 +1,25 @@
+{% load tags %}
+
+{% if bots %}
+<ul class="bots">
+  {% for bot in bots %}
+    <li><a href="/bots/{{bot.id}}"><strong>{{bot.name}}</strong></a> / {{bot.type|type}}
+    <br />
+    <strong>Status:</strong> {{bot.status|status}}
+    <br />
+    <strong>Server:</strong> {{bot.server}}:{{bot.port}}
+    <ul id="channel">
+        {% for channel, name in bot.channels|split %}
+        <li><a href="irc://{{bot.server}}:{{bot.port}}/{{name}}">{{channel}}</a></li>
+        {% endfor %}
+    </ul>
+    <br />
+    </li>
+  {% endfor %}
+</ul>
+<p>
+  <a href="/bots/new">Create a New Bot</a>
+</p>
+{% else %}
+<p style="margin-left:20px">You currently have no IRC bots. Would you like to <a href="/bots/new">create</a> one?</p>
+{% endif %}

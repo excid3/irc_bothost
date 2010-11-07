@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+    <title>{% block title %}{% endblock %}Ignite IRC</title>
+  </head>
+
+  <body>
+    <div align="center">
+    <div id="top">
+      <div id="top_left">
+        <span style="color:#DF0303;font-weight:bold;">IGNITE</span>IRC
+      </div>
+      <div id="top_right">
+
+      </div>
+    </div>
+
+
+    <div id="nav" align="center" >
+      <div id="center_bar">
+        <div id="nav_left">
+          {% block nav_left %}
+          <ul>
+              <li class="first"><a href="/">Home</a></li>
+          </ul>
+          {% endblock %}
+        </div>
+        <div id="nav_right">
+          {% block nav_right %}
+          <div id="login">
+            <a href="/signup" class="red">Signup</a>
+            <a href="/login" class="red">Login</a>
+          </div>
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+
+    <div id="main">
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    <div id="footer">
+      <div id="footer_left">
+        Copyright &copy; 2010. All rights reserved.
+      </div>
+      <div id="footer_right">
+        <ul>
+          <li><a href="http://excid3.com/blog">Blog</a> |</li>
+          <li><a href="/terms">Terms</a> |</li>
+          <li><a href="/privacy">Privacy</a> |</li>
+          <li><a href="/feedback">Feedback</a></li>
+        </ul>
+      </div>
+    </div>
+
+    </div>
+  </body>
+</html>

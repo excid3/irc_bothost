@@ -1,0 +1,17 @@
+{% extends "base_nav.html" %}
+
+{% load tags %}
+
+{% block content %}
+{% if errors.bot %}
+  {{errors.bot}}
+  <br />
+  <a href="/">Return to Dashboard</a>
+{% else %}
+<h3 style="display:inline;margin-right:25px;">Overview</h3><a href="/bots/{{bot.id}}/edit">Admin</a>
+<br />
+{{bot.name}} - {{bot.type|type}}<br />
+{{bot.server}}:{{bot.port}}<br />
+{{bot.channels}}<br />
+{% endif %}
+{% endblock %}

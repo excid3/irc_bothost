@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block nav_right %}
+      <ul>
+          <!--<li>{{request.user.username}}</li>-->
+          <li class="first"><a href="/">Dashboard</a></li>
+          {% if request.user.is_staff %}<li><a href="/bot-admin">Admin</a></li>{% endif %}
+          <li><a href="/account">Account</a></li>
+          <li class="last"><a href="/logout">Logout</a></li>
+      </ul>
+{% endblock %}

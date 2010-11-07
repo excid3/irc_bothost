@@ -1,0 +1,38 @@
+{% extends "base_nav.html" %}
+
+{% block title %}Create a New IRC Bot | {% endblock %}
+
+{% block content %}
+    {% if errors.bot %}{{errors.bot}}{% endif %}
+    <h3>Bot Administration</h3>
+    <form method="post">{#{% csrf_token %}#}
+      <label for="name">
+        Name {% if errors.name %}- {{errors.name}}{% endif %}
+        <br />
+        <input name="name" id="name" size="30" value="{{bot.name}}" />
+      </label>
+      <label for="type">
+        Bot Type {% if errors.type %}- {{errors.type}}{% endif %}
+        <br />
+        <select name="type">
+          {% for type, value in bottypes %}
+          <option value="{{type}}" {% ifequal bot.type type %}selected{% endifequal %} >{{value}}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label for="server">
+        IRC Server and Port{% if errors.server %}- {{errors.server}}{% endif %}{% if errors.port %} - {{errors.port}}{% endif %}
+        <br />
+        <input name="server" id="server" size="30" value="{{bot.server}}" />
+        :<input name="port" id="port" size="4" value="{{bot.port}}" />
+      </label>
+      <label for="channels">
+        Channels {% if errors.channels %}- {{errors.channels}}{% endif %}
+        <br />
+        <input name="channels" id="channels" size="30" value="{{bot.channels}}" />
+      </label>
+      <input value="Update Settings" type="submit" />
+    </form>
+    <br />
+    <a href="/bots/{{bot.id}}/edit/delete">Delete this bot</a> - This cannot be undone!
+{% endblock %}

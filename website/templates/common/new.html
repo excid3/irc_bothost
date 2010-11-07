@@ -1,0 +1,35 @@
+{% extends "base_nav.html" %}
+
+{% block title %}Create a New IRC Bot | {% endblock %}
+
+{% block content %}
+    <h3>Create a New IRC Bot</h3>
+    <form method="post">{#{% csrf_token %}#}
+      <label for="name">
+        Name {% if errors.name %}- {{errors.name}}{% endif %}
+        <br />
+        <input name="name" id="name" size="30" value="{{name}}" />
+      </label>
+      <label for="type">
+        Bot Type {% if errors.type %}- {{errors.type}}{% endif %}
+        <br />
+        <select name="type">
+          {% for type, value in bottypes %}
+          <option value="{{type}}">{{value}}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label for="server">
+        IRC Server and Port{% if errors.server %}- {{errors.server}}{% endif %}{% if errors.port %} - {{errors.port}}{% endif %}
+        <br />
+        <input name="server" id="server" size="30" value="{{server}}" />
+        :<input name="port" id="port" size="4" value="{{port}}" />
+      </label>
+      <label for="channels">
+        Channels {% if errors.channels %}- {{errors.channels}}{% endif %}
+        <br />
+        <input name="channels" id="channels" size="30" value="{{channels}}" />
+      </label>
+      <input value="Create Bot" type="submit" />
+    </form>
+{% endblock %}
